@@ -35,12 +35,9 @@ export class AddEditComponent implements OnInit {
         const formOptions: AbstractControlOptions = { validators: MustMatch('password', 'confirmPassword') };
         this.form = this.formBuilder.group({
             title: ['', Validators.required],
-            firstName: ['', Validators.required],
-            lastName: ['', Validators.required],
-            email: ['', [Validators.required, Validators.email]],
-            role: ['', Validators.required],
-            password: ['', [Validators.minLength(6), this.isAddMode ? Validators.required : Validators.nullValidator]],
-            confirmPassword: ['', this.isAddMode ? Validators.required : Validators.nullValidator]
+            nombre: ['', Validators.required],
+            apellido: ['', Validators.required],
+            direccion: ['', Validators.required]
         }, formOptions);
 
         if (!this.isAddMode) {

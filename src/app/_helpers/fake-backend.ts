@@ -3,7 +3,7 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { Observable, of, throwError } from 'rxjs';
 import { delay, materialize, dematerialize } from 'rxjs/operators';
 
-import { Role } from '../_models';
+
 
 // array in local storage for registered users
 const usersKey = 'angular-11-crud-example-users';
@@ -14,7 +14,6 @@ let users: any[] = usersJSON ? JSON.parse(usersJSON) : [{
     firstName: 'Joe',
     lastName: 'Bloggs',
     email: 'joe@bloggs.com',
-    role: Role.User,
     password: 'joe123'
 }];
 
@@ -109,8 +108,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         }
 
         function basicDetails(user: any) {
-            const { id, title, firstName, lastName, email, role } = user;
-            return { id, title, firstName, lastName, email, role };
+            const { id, title, nombre, apellido,  } = user;
+            return { id, title, nombre, apellido,  };
         }
 
         function idFromUrl() {
