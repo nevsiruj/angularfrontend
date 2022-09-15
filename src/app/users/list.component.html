@@ -3,7 +3,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th style="width: 30%">Name</th>
+            <th style="width: 30%">Nombre</th>
             <th style="width: 30%">Email</th>
             <th style="width: 30%">Role</th>
             <th style="width: 10%"></th>
@@ -11,14 +11,14 @@
     </thead>
     <tbody>
         <tr *ngFor="let user of users">
-            <td>{{user.title}} {{user.firstName}} {{user.lastName}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.role}}</td>
+            <td>{{user.Nombre}}</td>
+            <td>{{user.Apellido}}</td>
+            <td>{{user.Direccion}}</td>
             <td style="white-space: nowrap">
-                <a routerLink="edit/{{user.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <a routerLink="edit/{{user.id}}" class="btn btn-sm btn-primary mr-1">Editar</a>
                 <button (click)="deleteUser(user.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="user.isDeleting">
                     <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
-                    <span *ngIf="!user.isDeleting">Delete</span>
+                    <span *ngIf="!user.isDeleting">Eliminar</span>
                 </button>
             </td>
         </tr>
