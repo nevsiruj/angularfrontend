@@ -1,12 +1,12 @@
 import { Role } from './role';
 
 export class User {
-    id!: string;
-    title!: string;
-    Nombre!: string;
-    Apellido!: string;
-    Direccion!: string;
-    email!: string;
-    role!: Role;
-    isDeleting: boolean = false;
+  id!: string;
+  title!: string;
+  nombre!: string;
+  apellido!: string;
+  direccion!: string;
+  email!: string;
+  role!: Role;
+  isDeleting: boolean = false;
 }
