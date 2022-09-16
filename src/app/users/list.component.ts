@@ -6,22 +6,22 @@ import { User } from '../_models';
 
 @Component({ templateUrl: 'list.component.html' })
 export class ListComponent implements OnInit {
-    users!: User[];
+    clientes!: User[];
 
     constructor(private userService: UserService) {}
 
     ngOnInit() {
         this.userService.getAll()
             .pipe(first())
-            .subscribe(users => this.users = users);
+            .subscribe(clientes => this.clientes = clientes);
     }
 
     deleteUser(id: string) {
-        const user = this.users.find(x => x.id === id);
+        const user = this.clientes.find(x => x.id === id);
         if (!user) return;
         user.isDeleting = true;
         this.userService.delete(id)
             .pipe(first())
-            .subscribe(() => this.users = this.users.filter(x => x.id !== id));
+            .subscribe(() => this.clientes = this.clientes.filter(x => x.id !== id));
     }
 }

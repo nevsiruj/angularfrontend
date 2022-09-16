@@ -1,31 +1,42 @@
 <h1>Clientes</h1>
 <a routerLink="add" class="btn btn-sm btn-success mb-2">Agregar Cliente</a>
 <table class="table table-striped">
-    <thead>
-        <tr>
-            <th style="width: 30%">Nombre</th>
-            <th style="width: 30%">Apellido</th>
-            <th style="width: 30%">Dirección</th>
-            <th style="width: 10%"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of users">
-            <td>{{user.nombre}}</td>
-            <td>{{user.apellido}}</td>
-            <td>{{user.direccion}}</td>
-            <td style="white-space: nowrap">
-                <a routerLink="edit/{{user.id}}" class="btn btn-sm btn-primary mr-1">Editar</a>
-                <button (click)="deleteUser(user.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="user.isDeleting">
-                    <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
-                    <span *ngIf="!user.isDeleting">Eliminar</span>
-                </button>
-            </td>
-        </tr>
-        <tr *ngIf="!users">
-            <td colspan="4" class="text-center">
-                <span class="spinner-border spinner-border-lg align-center"></span>
-            </td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th style="width: 30%">Nombre</th>
+      <th style="width: 30%">Apellido</th>
+      <th style="width: 30%">Dirección</th>
+      <th style="width: 10%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientes">
+      <td>{{ cliente.nombre }}</td>
+      <td>{{ cliente.apellido }}</td>
+      <td>{{ cliente.direccion }}</td>
+      <td style="white-space: nowrap">
+        <a
+          routerLink="edit/{{ cliente.id }}"
+          class="btn btn-sm btn-primary mr-1"
+          >Editar</a
+        >
+        <button
+          (click)="deleteUser(cliente.id)"
+          class="btn btn-sm btn-danger btn-delete-user"
+          [disabled]="cliente.isDeleting"
+        >
+          <span
+            *ngIf="cliente.isDeleting"
+            class="spinner-border spinner-border-sm"
+          ></span>
+          <span *ngIf="!cliente.isDeleting">Eliminar</span>
+        </button>
+      </td>
+    </tr>
+    <tr *ngIf="!clientes">
+      <td colspan="4" class="text-center">
+        <span class="spinner-border spinner-border-lg align-center"></span>
+      </td>
+    </tr>
+  </tbody>
 </table>

@@ -41,7 +41,6 @@ export class AddEditComponent implements OnInit {
     };
     this.form = this.formBuilder.group(
       {
-        title: ['', Validators.required],
         nombre: ['', Validators.required],
         apellido: ['', Validators.required],
         direccion: ['', Validators.required],
@@ -86,7 +85,9 @@ export class AddEditComponent implements OnInit {
       .create(this.form.value)
       .pipe(first())
       .subscribe(() => {
-        this.alertService.success('User added', { keepAfterRouteChange: true });
+        this.alertService.success('Cliente agregado', {
+          keepAfterRouteChange: true,
+        });
         this.router.navigate(['../'], { relativeTo: this.route });
       })
       .add(() => (this.loading = false));
@@ -97,7 +98,7 @@ export class AddEditComponent implements OnInit {
       .update(this.id, this.form.value)
       .pipe(first())
       .subscribe(() => {
-        this.alertService.success('User updated', {
+        this.alertService.success('Cliente actualizado', {
           keepAfterRouteChange: true,
         });
         this.router.navigate(['../../'], { relativeTo: this.route });
