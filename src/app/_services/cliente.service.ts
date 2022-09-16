@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Cliente } from '../_models';
 
-const baseUrl = `${environment.apiUrl}/clientes`;
+// const baseUrl = `${environment.apiUrl}/clientes`;
 const _baseUrl = `https://localhost:7136/api/Clientes`;
 
 @Injectable({ providedIn: 'root' })
