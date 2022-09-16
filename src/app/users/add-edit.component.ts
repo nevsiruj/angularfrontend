@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { UserService, AlertService } from '../_services';
+import { ClienteService, AlertService } from '../_services';
 
 @Component({ templateUrl: 'add-edit.component.html' })
 export class AddEditComponent implements OnInit {
@@ -22,7 +22,7 @@ export class AddEditComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService,
+    private clienteService: ClienteService,
     private alertService: AlertService
   ) {}
 
@@ -49,7 +49,7 @@ export class AddEditComponent implements OnInit {
     );
 
     if (!this.isAddMode) {
-      this.userService
+      this.clienteService
         .getById(this.id)
         .pipe(first())
         .subscribe((x) => this.form.patchValue(x));
@@ -81,7 +81,7 @@ export class AddEditComponent implements OnInit {
   }
 
   private createUser() {
-    this.userService
+    this.clienteService
       .create(this.form.value)
       .pipe(first())
       .subscribe(() => {
@@ -94,7 +94,7 @@ export class AddEditComponent implements OnInit {
   }
 
   private updateUser() {
-    this.userService
+    this.clienteService
       .update(this.id, this.form.value)
       .pipe(first())
       .subscribe(() => {
